@@ -1,0 +1,110 @@
+
+\begin{equation}\label{key}
+A=\left [\begin{array}{cc}
+ 12 & 6\\
+ 18 & 24
+\end{array}\right  ]
+\end{equation}
+\newline~\newline
+\begin{align}\label{key}
+\left [\begin{array}{c}
+\dot{x}_1\\
+\dot{x}_2\\
+\dot{x}_3
+\end{array}\right  ]&=\left [\begin{array}{ccc}
+2 & 0 & 0\\
+0 & 2 & 0\\
+0 & 3 & 1
+\end{array}\right  ]\left [\begin{array}{c}
+x_1\\
+x_2\\
+x_3
+\end{array}\right  ]+\left [\begin{array}{cc}
+0 & 1\\
+1 & 0\\
+0 & 1
+\end{array}\right  ]\left [\begin{array}{c}
+ u_1\\
+ u_2
+\end{array}\right  ]\\
+\left [\begin{array}{c}
+y_1\\
+y_2
+\end{array}\right  ]&=\left [\begin{array}{ccc}
+1 & 0 & 0\\
+0 & 1 & 0
+\end{array}\right  ]\left [\begin{array}{c}
+x_1\\
+x_2\\
+x_3
+\end{array}\right  ]
+\end{align}
+\newline~\newline
+\begin{align}\label{key}
+\dot{x}_1&=2x_1+u_2\\
+\dot{x}_2&=2x_2+u_1\\
+\dot{x}_3&=3x_2+x_3+u_2\\
+y_1&=x_1\\
+y_2&=x_2
+\end{align}
+
+\begin{equation}\label{key}
+4\ddot{y}-8\dot{y}+3y=0\qquad y(0)=2;\quad \dot{y}(0)=\frac{1}{2}
+\end{equation}\newpage
+
+\begin{enumerate}
+	\item Considere la siguiente señal	y señale su transformada de Laplace con $ X(s) $ 
+	(2 puntos).
+	\begin{equation*}\label{key}
+	x(t)=e^{-5t}u(t-1)
+	\end{equation*}
+	\begin{enumerate}
+		\item Usando la siguiente ecuación evalúe $ X(s) $ y especifique su región de convergencia.
+		\begin{equation*}\label{key}
+		X(s)=\int_{-\infty}^{+\infty}x(t)e^{-st}dt
+		\end{equation*}
+		\item Determine los valores de los números finitos de $ A $ y $ t_0 $ tales que la transformada de Laplace $ G(s) $ de 
+		\begin{equation*}\label{key}
+		g(t)=Ae^{-5t}u(-t-t_0)
+		\end{equation*} 
+		tiene la misma forma algebráica que $ X(s) $ ¿Cuál es la región de convergencia correspondiente a $ G(s) $.
+	\end{enumerate}
+	\item Para la transformada de Laplace de 
+	\begin{equation*}\label{key}
+	x(t)=\left \{\begin{array}{cc}
+	e^t\sin(2t), & t\leq0\\
+	0, & t>0
+	\end{array}\right .
+	\end{equation*}
+	indique la localización de sus polos y su región de convergencia (2 puntos).
+	\item Dado que
+	\begin{equation*}\label{key}
+	e^{-at}u(t)\quad {}^{\underset{\longleftrightarrow}{\mathcal{L}}}\quad\frac{1}{s+a},\qquad \mathfrak{Re}\{s\}>\mathfrak{Re}\{-a\}
+	\end{equation*}
+	determine la transformada inversa de Laplace de 
+	\begin{equation*}\label{key}
+	X(s)=\frac{2(s+2)}{s^2+7s+12},\qquad \mathfrak{Re}\{s\}>-3 \quad \mbox{(2 puntos).}
+	\end{equation*}
+	
+	\item Sea
+	\begin{equation*}\label{key}
+	g(t)=x(t)+\alpha x(-t)\qquad\mbox{ donde }\qquad 
+	x(t)=\beta e^{-t}u(t)
+	\end{equation*}
+	y la transformada de Laplace de g(t) es
+	\begin{equation*}\label{key}
+	G(s)=\frac{s}{s^2-1},\qquad -1<\mathfrak{Re}\{s\}<1
+	\end{equation*}
+	determine los valores de las constantes $ \alpha $ y $ \beta $ (2 puntos).
+	\item Un sistema LTI causal $ S $ con respuesta al impulso $ h(t) $ tiene su entrada $ x(t) $ y salida $ y(t) $ relacionadas a través de una ecuación diferencial lineal con coeficientes constantes de la forma
+	\begin{equation*}\label{key}
+	\frac{d^3y(t)}{dt^3}+(1+\alpha)\frac{d^2y(t)}{dt^2}+\alpha(\alpha +1)\frac{dy(t)}{dt}+\alpha^2y(t)=x(t)
+	\end{equation*}
+	\begin{enumerate}
+		\item Si 
+		\begin{equation*}\label{key}
+		g(t)=\frac{dh(t)}{dt}+h(t)
+		\end{equation*}
+		¿Cuántos polos tiene $ G(s) $? (2 puntos).
+	\end{enumerate}
+\end{enumerate}

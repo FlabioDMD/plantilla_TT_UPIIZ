@@ -1,0 +1,313 @@
+% Archivo principal de formato de tesis de Trabajo Terminal
+%======================================================
+% Este formato de tesis fue diseñado por Flabio Dario Mirelez Delgado,
+% como modelo de estructura de documento de Trabajo Terminal,
+% propuesto para la Ingeniería Mecatrónica de la Unidad Profesional 
+% Interdisciplinaria de Ingeniería Campus Zacatecas. El archivo utiliza el paquete
+% upiiztt.cls adaptado de los paquetes de tesis de "the Purdue
+% University" y de "the University of Wisconsin-Madison"
+%======================================================
+
+
+
+
+\documentclass[12pt,tesis,twoside,openright]{upiiztt}
+
+%				standard font size
+%command		10pt	11pt	12pt
+
+%\tiny			5pt		6pt		6pt
+%\scriptsize	7pt		8pt		8pt
+%\footnotesize	8pt		9pt		10pt
+%\small			9pt		10pt	11pt
+%\normalsize	10pt	11pt	12pt
+%\large			12pt	12pt	14pt
+%\Large			14pt	14pt	17pt
+%\LARGE			17pt	17pt	20pt
+%\huge			20pt	20pt	25pt
+%\Huge			25pt	25pt	25pt
+%								 ||	
+
+%======================================================
+% DECLARACIÓN DE PAQUETES A UTILIZAR
+% (se pueden agregar a la lista cuantos paquetes sean necesario declarar )
+%======================================================
+\usepackage[latin1]{inputenc} % latin1 es para sistemas basados en windows, para sistemas unix la codificación de caracteres es utf8
+\usepackage[T1]{fontenc} %paquete necesario para los acentos, NO es necesario usar (\'a) para obtener (á)
+\usepackage{amssymb,amsmath,amsfonts}
+\usepackage{color,graphicx,curves}
+\usepackage{epsfig}
+\usepackage{times}
+\usepackage{multirow,rotating}
+\usepackage{times}
+\usepackage{subfig,wrapfig}
+\usepackage{pdfpages}
+\usepackage[bookmarks=true,citebordercolor={1 1 1},linkbordercolor={1 1 1},urlbordercolor={1 1 1},hidelinks]{hyperref}
+\usepackage{bookmark}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{lipsum}
+\usepackage{longtable}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{colortbl, xcolor}
+\usepackage{bm}	
+\usepackage{authoraftertitle}
+\usepackage{mfirstuc}
+\MFUnocap{de}
+\MFUnocap{y}
+\MFUnocap{por}
+\MFUnocap{para}
+\MFUnocap{del}
+\MFUnocap{un}
+\MFUnocap{el}
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{tabulary}
+%\usepackage{cite}
+\usepackage[notlof, notlot, numbib,nottoc]{tocbibind}
+%\usepackage[none]{hyphenat}
+\usepackage{soul}
+\usepackage{anyfontsize}
+\usepackage{capt-of}
+\usepackage{ifthen}
+\usepackage{float}
+\usepackage{url}
+
+
+\sodef\spaceout{}{0pt plus 1fil}{.8em plus 1fil}{0pt}
+
+\usepackage{datatool}
+\newcommand{\sortitem}[1]{
+	\DTLnewrow{list}
+	\DTLnewdbentry{list}{description}{#1}
+}
+\newenvironment{sortedlist}{
+	\DTLifdbexists{list}{\DTLcleardb{list}}{\DTLnewdb{list}}
+}{%
+	\DTLsort{description}{list}
+	\begin{itemize}
+		\DTLforeach*{list}{\theDesc=description}{
+			\item \theDesc}
+	\end{itemize}
+}
+
+\newcommand{\itemcolor}[1]{
+	\renewcommand{\makelabel}[1]{\color{#1}\hfil ##1}}
+\setlist[itemize]{label={$\diamond$}}
+\newcommand{\cinvesitem}{\itemcolor{cinvestav1}}
+\definecolor{colorutcV}{RGB}{1,102,72}
+\definecolor{colorutcG}{RGB}{206,201,195}
+\setlength\parindent{0pt}
+
+
+%======================================================
+% DECLARACIÓN DE CARPETA DONDE SE ENCUENTRAN LAS FIGURAS
+%======================================================
+
+% NOTA MUY IMPORTANTE
+
+% Dependiendo del formato de las figuras será el método de compilación del documento:
+
+%*.EPS o *.PDF ---- Latex=>dvi2ps=>ps2pdf=>ver pdf
+%					Latex=>dvi2pdf=>ver pdf
+%*.png y *.jpg ---- PDFLatex=>ver PDF					
+
+\graphicspath{{Figuras/}}  % Las figuras se encuentran en una carpeta llamada 'Figuras' que se incluye en la carpeta principal de los archivos .tex
+%================================================================
+% OPCIONES DE DOCUMENTO
+%
+% La opción \psdraft deja un espacio en blanco en donde van
+% las figuras. Esto ahorra toner en la impresión del borrador de tesis
+%
+% La opción \psfull hace incluir a todas las figuras
+%
+%===============================================================
+
+\psfull
+
+%===============================================================
+% ESTILO DE PÁGINA
+%
+% El estilo de página \pagestyle{thesis} coloca los encabezados
+% correctos de la versión final del documento
+%==============================================================
+\pagestyle{thesis}
+
+%==============================================================
+\noappendixtables
+\noappendixfigures
+
+%==============================================================
+% PÁGINAS PRELIMINARES
+% Título/autor de tesis, Autorización, Aprobación, Resumen,
+% Abstract, Dedicatoria, Agradecimientos, Contenido general,
+% Listas de figuras, Lista de tablas, y Nomenclatura)
+%==============================================================
+
+
+%======================================================
+%-----------------------Portada------------------------
+%======================================================
+% Título del proyecto
+\title{\capitalisewords{Prototipo semiautomático para el proceso de llenado y tapado de botellas de un litro para esencia de vainilla}}
+
+
+%\def\authnum{2}
+
+\authnum{3}
+\asesornum{3}
+% Nombre completo del alumno
+\author{Nombre del alumno}
+\alumnoA{Juan}
+\alumnoB{Pedro}
+\alumnoC{Pablo}
+\asesorA{Asesor 1}
+\asesorB{Asesor 2}
+\asesorC{Asesor 3}
+\presidente{Maestro}
+
+% Mes y año oficial de liberación
+\date{Agosto de 2018}
+
+\makeatletter
+\let\newtitle\@title
+\let\newauthor\@author
+\let\newauthortitle\@authortitle
+\let\newdate\@date
+\makeatother
+
+
+
+%==============================================================
+% INICIA DOCUMENTO
+%==============================================================
+\begin{document}
+	\renewcommand{\listfigurename}{Lista de Figuras}
+	\renewcommand{\listtablename}{Lista de Tablas}
+% Nombre para el capítulo de Bibliografía	
+
+
+% Estilo de la tesina
+	\thesism                 
+%==============================================================
+% La instrucción \hyphenation{...} permite insertar
+% palabras separadas en sílabas, desconocidas por LaTeX
+
+\hyphenation{je-rar-qui-a mí-ni-mo ma-ni-pu-la-do-res res-trin-gi-ría si-mu-la-dor re-com-pen-sa iner-cia-les ma-nu-fac-tu-ra o-rien-ta-ción ins-pec-ción res-trin-gi-dos ma-ni-pu-la-ción re-a-li-zar ca-te-go-ri-za-cio-nes con-si-de-ra pa-rá-me-tros re-a-li-ce in-ter-cam-bia-do}
+
+
+%Fecha de autorización de impresión de carlas
+\fechaaut{día de mes de año}
+
+
+%======================================================
+%-----------------Portada y contraportada--------------
+%======================================================
+\longdate{diciembre de 2018}
+\maketitle
+\clearpage
+\pagestyle{empty}
+\begin{contraportada}
+\end{contraportada}
+\clearpage
+\pagestyle{plain}
+
+%======================================================
+%----------------------Índice--------------------------
+%======================================================
+\pagestyle{empty}
+\tableofcontents\pagestyle{empty}
+\listoffigures
+\cleardoublepage\pagestyle{empty}
+\listoftables
+\cleardoublepage
+\pagestyle{empty}
+
+%======================================================
+% --------------------Capítulos------------------------
+%======================================================
+%-------Numeración automática de las páginas-----------
+ 
+%======================================================
+%------------------Agradecimientos---------------------
+%======================================================
+
+\clearpage\pagestyle{plain}
+\pagenumbering{roman} 
+\include{agradecimientos} 
+
+%======================================================
+%------------------Agradecimientos---------------------
+%======================================================
+\include{Dedicatoria} 
+
+                   
+%======================================================
+%--------------------Capítulo 1------------------------
+%======================================================
+\include{resumen}   
+\clearpage\pagenumbering{arabic}
+%======================================================
+%--------------------Capítulo 1------------------------
+%======================================================
+\include{capitulo1}          
+          
+%======================================================
+%--------------------Capítulo 2------------------------
+%======================================================
+\include{capitulo2}    
+               
+%======================================================
+%--------------------Capítulo 3------------------------
+%======================================================
+\include{capitulo3}
+                   
+%======================================================
+%--------------------Capítulo 4------------------------
+%======================================================
+\include{capitulo4}
+                
+%======================================================
+%--------------------Capítulo 5------------------------
+%======================================================
+\include{capitulo5} 
+
+%======================================================
+%--------------------Capítulo 6------------------------
+%======================================================
+\include{capitulo6} 
+%
+%======================================================
+%--------------------Capítulo 7------------------------
+%======================================================
+\include{capitulo7} 
+
+%======================================================
+%--------------------Capítulo 8------------------------
+%======================================================
+\include{capitulo8} 
+
+%======================================================
+%--------------------Capítulo 9------------------------
+%======================================================
+\include{capitulo9} 
+
+%======================================================
+%--------------------Capítulo 10------------------------
+%======================================================
+%\begin{firmasTT}                  
+%\end{firmasTT}
+
+%======================================================
+%----------------------Anexos--------------------------
+%======================================================
+
+%\include{Anexo1} 
+
+%======================================================
+% ---------------FINALIZA DOCUMENTO--------------------
+%======================================================
+\end{document}
